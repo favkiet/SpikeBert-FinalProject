@@ -122,9 +122,9 @@ def train(args):
     os.makedirs("saved_models/trained_spikformer", exist_ok=True)
 
     # In ra kiến trúc
-    summary(model, input_size=(args.batch_size, args.max_length), device=device)
-    with open("model_summary.txt", "w") as f: 
-        f.write(str(summary(model, input_size=(args.batch_size, args.max_length), device=device)))
+    # summary(model, input_size=(args.batch_size, args.max_length), device=device)
+    # with open("model_summary.txt", "w") as f: 
+    #     f.write(str(summary(model, input_size=(args.batch_size, args.max_length), device=device)))
 
 
     acc_list = []
