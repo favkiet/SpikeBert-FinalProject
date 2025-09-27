@@ -57,14 +57,14 @@ def fine_tune_teacher_model(args):
     
     # Chọn dataset class dựa trên tham số use_csv
     if args.use_csv:
-        train_dataset = CSVDataset(data_path=f"/kaggle/input{args.dataset_name}/train.csv", 
+        train_dataset = CSVDataset(data_path=f"/kaggle/input/{args.dataset_name}/train.csv", 
                                   sentence_col=args.sentence_col, 
                                   label_col=args.label_col)
-        test_dataset = CSVDataset(data_path=f"/kaggle/input{args.dataset_name}/test.csv",
+        test_dataset = CSVDataset(data_path=f"/kaggle/input/{args.dataset_name}/test.csv",
                                  sentence_col=args.sentence_col, 
                                  label_col=args.label_col)
         # Kiểm tra xem có file validation không
-        validation_path = f"/kaggle/input{args.dataset_name}/validation.csv"
+        validation_path = f"/kaggle/input/{args.dataset_name}/validation.csv"
         if os.path.exists(validation_path):
             valid_dataset = CSVDataset(data_path=validation_path,
                                      sentence_col=args.sentence_col, 
@@ -72,10 +72,10 @@ def fine_tune_teacher_model(args):
         else:
             valid_dataset = test_dataset  # Sử dụng test làm validation nếu không có
     else:
-        train_dataset = TxtDataset(data_path=f"/kaggle/input{args.dataset_name}/train.txt")
-        test_dataset = TxtDataset(data_path=f"/kaggle/input{args.dataset_name}/test.txt")
+        train_dataset = TxtDataset(data_path=f"/kaggle/input/{args.dataset_name}/train.txt")
+        test_dataset = TxtDataset(data_path=f"/kaggle/input/{args.dataset_name}/test.txt")
         # Kiểm tra xem có file validation không
-        validation_path = f"/kaggle/input{args.dataset_name}/validation.txt"
+        validation_path = f"/kaggle/input/{args.dataset_name}/validation.txt"
         if os.path.exists(validation_path):
             valid_dataset = TxtDataset(data_path=validation_path)
         else:
