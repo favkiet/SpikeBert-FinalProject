@@ -113,21 +113,21 @@ def distill(args):
     if args.use_csv:
         if args.data_augment == "True":
             print("With Augmentation (CSV)")
-            train_dataset = CSVDataset(data_path=f"../data/{args.dataset_name}/train_augment.csv",
+            train_dataset = CSVDataset(data_path=f"data/{args.dataset_name}/train_augment.csv",
                                       sentence_col=args.sentence_col, 
                                       label_col=args.label_col)
         else:
             print("Without Augmentation (CSV)")
-            train_dataset = CSVDataset(data_path=f"../data/{args.dataset_name}/train.csv",
+            train_dataset = CSVDataset(data_path=f"data/{args.dataset_name}/train.csv",
                                       sentence_col=args.sentence_col, 
                                       label_col=args.label_col)
         
-        test_dataset = CSVDataset(data_path=f"../data/{args.dataset_name}/test.csv",
+        test_dataset = CSVDataset(data_path=f"data/{args.dataset_name}/test.csv",
                                  sentence_col=args.sentence_col, 
                                  label_col=args.label_col)
         
         # Kiểm tra xem có file validation không
-        validation_path = f"../data/{args.dataset_name}/validation.csv"
+        validation_path = f"data/{args.dataset_name}/validation.csv"
         if os.path.exists(validation_path):
             valid_dataset = CSVDataset(data_path=validation_path,
                                      sentence_col=args.sentence_col, 
@@ -137,15 +137,15 @@ def distill(args):
     else:
         if args.data_augment == "True":
             print("With Augmentation")
-            train_dataset = TxtDataset(data_path=f"../data/{args.dataset_name}/train_augment.txt")
+            train_dataset = TxtDataset(data_path=f"data/{args.dataset_name}/train_augment.txt")
         else:
             print("Without Augmentation")
-            train_dataset = TxtDataset(data_path=f"../data/{args.dataset_name}/train.txt")
+            train_dataset = TxtDataset(data_path=f"data/{args.dataset_name}/train.txt")
         
-        test_dataset = TxtDataset(data_path=f"../data/{args.dataset_name}/test.txt")
+        test_dataset = TxtDataset(data_path=f"data/{args.dataset_name}/test.txt")
         
         # Kiểm tra xem có file validation không
-        validation_path = f"../data/{args.dataset_name}/validation.txt"
+        validation_path = f"data/{args.dataset_name}/validation.txt"
         if os.path.exists(validation_path):
             valid_dataset = TxtDataset(data_path=validation_path)
         else:
