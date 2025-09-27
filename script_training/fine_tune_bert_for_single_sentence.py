@@ -105,7 +105,9 @@ def fine_tune_teacher_model(args):
     # Tạo thư mục output nếu chưa có
     os.makedirs(args.output_dir, exist_ok=True)
     
-    for epoch in tqdm(range(args.epochs)):
+    # for epoch in tqdm(range(args.epochs)):
+    for epoch in range(args.epochs):
+        print(f"----------------------- Epoch {epoch} -----------------------")
         loss_list = []
         for i, batch in enumerate(train_data_loader):
             inputs = tokenizer(batch[0], padding=True, truncation=True, return_tensors="pt", max_length=args.max_length)

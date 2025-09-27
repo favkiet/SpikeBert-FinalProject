@@ -166,7 +166,9 @@ def distill(args):
     os.makedirs("saved_models/distilled_spikformer", exist_ok=True)
 
     metric_list = []
-    for epoch in tqdm(range(args.epochs)):
+    # for epoch in tqdm(range(args.epochs)):
+    for epoch in range(args.epochs):
+        print(f"----------------------- Epoch {epoch} -----------------------")
         # if epoch == 5:
         #     args.rep_weight == 0
         total_loss_list = []

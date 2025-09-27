@@ -128,7 +128,9 @@ def train(args):
 
 
     acc_list = []
-    for epoch in tqdm(range(args.epochs)):
+    # for epoch in tqdm(range(args.epochs)):
+    for epoch in range(args.epochs):
+        print(f"----------------------- Epoch {epoch} -----------------------")
         avg_loss = []
         for batch in tqdm(train_data_loader):
             batch_size = len(batch[0])
